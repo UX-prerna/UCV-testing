@@ -1,0 +1,1115 @@
+/* ============================================================
+   Arcade Design System - Colors & Type
+   Derived from Tekion components (theme.scss + tekion-styles-next)
+   ============================================================ */
+
+/* --- Fonts --------------------------------------------------- */
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-RegIt.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Sbold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-BoldIt.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Xbold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* =====================================================
+     COLOR - PRIMITIVES
+     Source of truth: tekion-components/src/theme.scss
+     ===================================================== */
+
+  /* Neutrals */
+  --c-black:       #161616;  /* @kind color */ /* $black - body text, headings */
+  --c-gun-metal:   #1F2532;  /* @kind color */ /* $gunMetal - dark surfaces */
+  --c-atomic:      #444F5C;  /* @kind color */ /* $atomic - secondary text */
+  --c-ash-gray:    #969AA3;  /* @kind color */ /* $ashGray - placeholder, disabled text */
+  --c-platinum:    #D4D5D6;  /* @kind color */ /* $platinum - borders, base */
+  --c-glitter:     #EDEEF0;  /* @kind color */ /* $glitter - disabled bg, modal header */
+  --c-light-gray:  #F4F5F6;  /* @kind color */ /* $lightGray - app surface */
+  --c-white:       #FFFFFF;  /* @kind color */
+
+  /* Brand / Primary */
+  --c-denim:       #4285F4;  /* @kind color */ /* $denim - primary */
+  --c-azure:       #0060FF;  /* @kind color */ /* $azure - hover/active border */
+  --c-alice-blue:  #EBF4FF;  /* @kind color */ /* $aliceBlue - hover/active bg */
+  --c-powder-blue: #DBEBFF;  /* @kind color */ /* selected-control tint (Figma background/active) */
+  --c-tekion-green:#00BFA5;  /* @kind color */ /* $green - marketing accent (login, logo) */
+
+  /* Status / Semantic */
+  --c-paris-green: #60D156;  /* @kind color */ /* $parisGreen - success */
+  --c-orange:      #FF8800;  /* @kind color */ /* $carrotOrange - warning / pending */
+  --c-mordant-red: #F52908;  /* @kind color */ /* $mordantRed - error / danger */
+
+  /* Accent palette (found in avatars, tiles, charts) */
+  --c-purple:      #C58AFF;  /* @kind color */
+  --c-sky:         #7EAEFD;  /* @kind color */
+  --c-mint:        #05DEBA;  /* @kind color */
+
+  /* Figma-derived primitive additions
+     Raw hues introduced by the Arcade token set (ARCTokens.json) that had
+     no existing primitive. Named by hue so the semantic layer can reference
+     them. Hex lives ONLY here (and in the categorical palettes below). */
+  --c-true-black:  #000000;  /* @kind color */ /* pure black - overlay / on-color base */
+  --c-mercury:     #D9D9D9;  /* @kind color */ /* on-color tertiary, always-dark icon/border 2 */
+  --c-slate:       #6D707A;  /* @kind color */ /* on-color disabled text */
+  --c-cobalt:      #3373DD;  /* @kind color */ /* brand / info text */
+  --c-cloud:       #E8E9EB;  /* @kind color */ /* muted border */
+  --c-scarlet:     #C42106;  /* @kind color */ /* error bg / border */
+  --c-vermilion:   #D62508;  /* @kind color */ /* error bg / border hover */
+  --c-maroon:      #931904;  /* @kind color */ /* error bg / border active */
+  --c-blush:       #FEEAE6;  /* @kind color */ /* error muted */
+  --c-crimson:     #A01B05;  /* @kind color */ /* error text / icon */
+  --c-gold:        #FFD500;  /* @kind color */ /* warning bg */
+  --c-cream:       #FFF8E6;  /* @kind color */ /* warning muted */
+  --c-bronze:      #987002;  /* @kind color */ /* warning text / icon */
+  --c-amber:       #E8AA00;  /* @kind color */ /* warning border */
+  --c-honeydew:    #EFFAEE;  /* @kind color */ /* success muted */
+  --c-forest:      #3C8635;  /* @kind color */ /* success text / icon */
+  --c-fern:        #56BF4D;  /* @kind color */ /* success border */
+  --c-tangerine:   #F5964E;  /* @kind color */ /* focus ring (used at 80% alpha) */
+
+  /* Shell chrome - MenuBar + FavBar surfaces */
+  --c-shell:        #3F4757;  /* @kind color */ /* menu bar + fav bar surface */
+  --c-shell-dark:   #152532;  /* @kind color */ /* split-button bg, fav bar border */
+  --c-tile-bg:      #6F7884;  /* @kind color */ /* app tile rest */
+
+  /* T1 (Tekion One AI) brand gradient stops - MenuBar T1/Search "AI" mode only
+     (sanctioned exception; NOT in the Figma token set). Consumed exclusively by
+     the --menubar-t1-* gradient tokens below; never bind these directly. */
+  --c-t1-blue-1:   #2157F5;  /* @kind color */ /* T1 gradient - deep blue */
+  --c-t1-blue-2:   #3C6DFF;  /* @kind color */ /* T1 gradient - mid blue */
+  --c-t1-blue-3:   #258DFF;  /* @kind color */ /* T1 CTA gradient - sky blue */
+  --c-t1-green-1:  #47FF97;  /* @kind color */ /* T1 gradient - mint */
+  --c-t1-green-2:  #86FFBB;  /* @kind color */ /* T1 CTA gradient - pale mint */
+
+  /* =====================================================
+     COLOR - SEMANTIC TOKENS
+     Arcade "Styles" nomenclature, 1:1 with ARCTokens.json
+     (the Figma variable collection). Token path group/property/variant
+     maps to --group-property-variant. Role-based tokens reference a
+     primitive; the support/analytics categorical palettes are leaf
+     tokens that carry their hex directly.
+     ===================================================== */
+
+  /* Background */
+  --background-primary:           var(--c-white);        /* @kind color */ /* #FFFFFF */
+  --background-secondary:         var(--c-glitter);      /* @kind color */ /* #EDEEF0 */
+  --background-tertiary:          var(--c-platinum);     /* @kind color */ /* #D4D5D6 */
+  --background-muted:             var(--c-light-gray);   /* @kind color */ /* #F4F5F6 */
+  --background-hover:             var(--c-alice-blue);   /* @kind color */ /* #EBF4FF */
+  --background-active:            var(--c-powder-blue);  /* @kind color */ /* #DBEBFF */
+  --background-active-disabled:   var(--c-glitter);      /* @kind color */ /* #EDEEF0 */
+  --background-disabled:          var(--c-light-gray);   /* @kind color */ /* #F4F5F6 */
+  --background-overlay-primary:   rgba(0, 0, 0, 0.4);    /* @kind color */ /* #000000 @ 40% - modal scrim */
+  --background-overlay-secondary: rgba(0, 0, 0, 0.7);    /* @kind color */ /* #000000 @ 70% */
+
+  /* Text */
+  --text-primary:            var(--c-black);       /* @kind color */ /* #161616 */
+  --text-secondary:          var(--c-atomic);      /* @kind color */ /* #444F5C */
+  --text-tertiary:           var(--c-ash-gray);    /* @kind color */ /* #969AA3 */
+  --text-disabled:           var(--c-platinum);    /* @kind color */ /* #D4D5D6 */
+  --text-on-color-primary:   var(--c-white);       /* @kind color */ /* #FFFFFF */
+  --text-on-color-secondary: rgba(0, 0, 0, 0.8);   /* @kind color */ /* #000000 @ 80% */
+  --text-on-color-tertiary:  var(--c-mercury);     /* @kind color */ /* #D9D9D9 */
+  --text-on-color-disabled:  var(--c-slate);       /* @kind color */ /* #6D707A */
+  --text-hover:              var(--c-azure);       /* @kind color */ /* #0060FF */
+  --text-active:             var(--c-azure);       /* @kind color */ /* #0060FF */
+  --text-muted:              var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+
+  /* Icon */
+  --icon-primary:            var(--c-ash-gray);    /* @kind color */ /* #969AA3 */
+  --icon-secondary:          var(--c-atomic);      /* @kind color */ /* #444F5C */
+  --icon-disabled:           var(--c-platinum);    /* @kind color */ /* #D4D5D6 */
+  --icon-on-color-primary:   var(--c-white);       /* @kind color */ /* #FFFFFF */
+  --icon-on-color-secondary: rgba(0, 0, 0, 0.7);   /* @kind color */ /* #000000 @ 70% */
+  --icon-on-color-disabled:  var(--c-ash-gray);    /* @kind color */ /* #969AA3 */
+  --icon-hover:              var(--c-azure);       /* @kind color */ /* #0060FF */
+  --icon-active:             var(--c-azure);       /* @kind color */ /* #0060FF */
+  --icon-muted:              var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+
+  /* Border */
+  --border-primary:            var(--c-platinum);   /* @kind color */ /* #D4D5D6 */
+  --border-secondary:          var(--c-ash-gray);   /* @kind color */ /* #969AA3 */
+  --border-muted:              var(--c-cloud);      /* @kind color */ /* #E8E9EB */
+  --border-disabled:           var(--c-platinum);   /* @kind color */ /* #D4D5D6 */
+  --border-on-color-disabled:  var(--c-platinum);   /* @kind color */ /* #D4D5D6 */
+  --border-hover:              var(--c-denim);      /* @kind color */ /* #4285F4 */
+  --border-active:             var(--c-azure);      /* @kind color */ /* #0060FF */
+
+  /* Brand */
+  --brand-background-primary: var(--c-denim);       /* @kind color */ /* #4285F4 */
+  --brand-background-hover:   var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-background-active:  var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-background-muted:   var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+  --brand-text-primary:       var(--c-cobalt);      /* @kind color */ /* #3373DD */
+  --brand-text-hover:         var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-text-active:        var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-text-muted:         var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+  --brand-icon-primary:       var(--c-denim);       /* @kind color */ /* #4285F4 */
+  --brand-icon-hover:         var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-icon-active:        var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-icon-muted:         var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+  --brand-border-primary:     var(--c-denim);       /* @kind color */ /* #4285F4 */
+  --brand-border-hover:       var(--c-denim);       /* @kind color */ /* #4285F4 */
+  --brand-border-active:      var(--c-azure);       /* @kind color */ /* #0060FF */
+  --brand-border-muted:       var(--c-alice-blue);  /* @kind color */ /* #EBF4FF */
+
+  /* Info (mirrors Brand) */
+  --info-background-primary: var(--c-denim);        /* @kind color */ /* #4285F4 */
+  --info-background-hover:   var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-background-active:  var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-background-muted:   var(--c-alice-blue);   /* @kind color */ /* #EBF4FF */
+  --info-text-primary:       var(--c-cobalt);       /* @kind color */ /* #3373DD */
+  --info-text-hover:         var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-text-active:        var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-text-muted:         var(--c-alice-blue);   /* @kind color */ /* #EBF4FF */
+  --info-icon-primary:       var(--c-denim);        /* @kind color */ /* #4285F4 */
+  --info-icon-hover:         var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-icon-active:        var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-icon-muted:         var(--c-alice-blue);   /* @kind color */ /* #EBF4FF */
+  --info-border-primary:     var(--c-denim);        /* @kind color */ /* #4285F4 */
+  --info-border-hover:       var(--c-denim);        /* @kind color */ /* #4285F4 */
+  --info-border-active:      var(--c-azure);        /* @kind color */ /* #0060FF */
+  --info-border-muted:       var(--c-alice-blue);   /* @kind color */ /* #EBF4FF */
+
+  /* Error */
+  --error-background-primary: var(--c-scarlet);     /* @kind color */ /* #C42106 */
+  --error-background-hover:   var(--c-vermilion);   /* @kind color */ /* #D62508 */
+  --error-background-active:  var(--c-maroon);      /* @kind color */ /* #931904 */
+  --error-background-muted:   var(--c-blush);       /* @kind color */ /* #FEEAE6 */
+  --error-text-primary:       var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-text-hover:         var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-text-active:        var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-text-muted:         var(--c-blush);       /* @kind color */ /* #FEEAE6 */
+  --error-icon-primary:       var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-icon-hover:         var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-icon-active:        var(--c-crimson);     /* @kind color */ /* #A01B05 */
+  --error-icon-muted:         var(--c-blush);       /* @kind color */ /* #FEEAE6 */
+  --error-border-primary:     var(--c-scarlet);     /* @kind color */ /* #C42106 */
+  --error-border-hover:       var(--c-vermilion);   /* @kind color */ /* #D62508 */
+  --error-border-active:      var(--c-maroon);      /* @kind color */ /* #931904 */
+  --error-border-muted:       var(--c-blush);       /* @kind color */ /* #FEEAE6 */
+
+  /* Warning */
+  --warning-background-primary: var(--c-gold);      /* @kind color */ /* #FFD500 */
+  --warning-background-hover:   var(--c-gold);      /* @kind color */ /* #FFD500 */
+  --warning-background-active:  var(--c-gold);      /* @kind color */ /* #FFD500 */
+  --warning-background-muted:   var(--c-cream);     /* @kind color */ /* #FFF8E6 */
+  --warning-text-primary:       var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-text-hover:         var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-text-active:        var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-text-muted:         var(--c-cream);     /* @kind color */ /* #FFF8E6 */
+  --warning-icon-primary:       var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-icon-hover:         var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-icon-active:        var(--c-bronze);    /* @kind color */ /* #987002 */
+  --warning-icon-muted:         var(--c-cream);     /* @kind color */ /* #FFF8E6 */
+  --warning-border-primary:     var(--c-amber);     /* @kind color */ /* #E8AA00 */
+  --warning-border-hover:       var(--c-amber);     /* @kind color */ /* #E8AA00 */
+  --warning-border-active:      var(--c-amber);     /* @kind color */ /* #E8AA00 */
+  --warning-border-muted:       var(--c-cream);     /* @kind color */ /* #FFF8E6 */
+
+  /* Success */
+  --success-background-primary: var(--c-paris-green); /* @kind color */ /* #60D156 */
+  --success-background-hover:   var(--c-paris-green); /* @kind color */ /* #60D156 */
+  --success-background-active:  var(--c-paris-green); /* @kind color */ /* #60D156 */
+  --success-background-muted:   var(--c-honeydew);    /* @kind color */ /* #EFFAEE */
+  --success-text-primary:       var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-text-hover:         var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-text-active:        var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-text-muted:         var(--c-honeydew);    /* @kind color */ /* #EFFAEE */
+  --success-icon-primary:       var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-icon-hover:         var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-icon-active:        var(--c-forest);      /* @kind color */ /* #3C8635 */
+  --success-icon-muted:         var(--c-honeydew);    /* @kind color */ /* #EFFAEE */
+  --success-border-primary:     var(--c-fern);        /* @kind color */ /* #56BF4D */
+  --success-border-hover:       var(--c-fern);        /* @kind color */ /* #56BF4D */
+  --success-border-active:      var(--c-fern);        /* @kind color */ /* #56BF4D */
+  --success-border-muted:       var(--c-honeydew);    /* @kind color */ /* #EFFAEE */
+
+  /* Always Dark (shares hues with App Chrome primitives) */
+  --always-dark-background-primary:   var(--c-shell);      /* @kind color */ /* #3F4757 */
+  --always-dark-background-secondary: var(--c-tile-bg);    /* @kind color */ /* #6F7884 */
+  --always-dark-text-primary:         var(--c-light-gray); /* @kind color */ /* #F4F5F6 */
+  --always-dark-text-secondary:       var(--c-glitter);    /* @kind color */ /* #EDEEF0 */
+  --always-dark-icon-primary:         var(--c-platinum);   /* @kind color */ /* #D4D5D6 */
+  --always-dark-icon-secondary:       var(--c-mercury);    /* @kind color */ /* #D9D9D9 */
+  --always-dark-border-primary:       var(--c-shell-dark); /* @kind color */ /* #152532 */
+  --always-dark-border-secondary:     var(--c-mercury);    /* @kind color */ /* #D9D9D9 */
+
+  /* Focus */
+  --focus-border-primary: rgba(245, 150, 78, 0.8);  /* @kind color */ /* #F5964E @ 80% */
+
+  /* Support - categorical palette (leaf tokens, hex direct) */
+  --support-foreground-1:  #F52F1D;  /* @kind color */
+  --support-foreground-2:  #FC602B;  /* @kind color */
+  --support-foreground-3:  #FFB23C;  /* @kind color */
+  --support-foreground-4:  #06BC75;  /* @kind color */
+  --support-foreground-5:  #00BFA5;  /* @kind color */
+  --support-foreground-6:  #46CAD4;  /* @kind color */
+  --support-foreground-7:  #4F68F1;  /* @kind color */
+  --support-foreground-8:  #7A64C1;  /* @kind color */
+  --support-foreground-9:  #F45191;  /* @kind color */
+  --support-foreground-10: #6285A3;  /* @kind color */
+  --support-foreground-11: #B7C7D5;  /* @kind color */
+  --support-foreground-12: #A51507;  /* @kind color */
+  --support-background-1:  #FAE3E1;  /* @kind color */
+  --support-background-2:  #FFE8E0;  /* @kind color */
+  --support-background-3:  #FFF3E0;  /* @kind color */
+  --support-background-4:  #E1FAF0;  /* @kind color */
+  --support-background-5:  #DCFAF6;  /* @kind color */
+  --support-background-6:  #E0FDFF;  /* @kind color */
+  --support-background-7:  #E6E9FA;  /* @kind color */
+  --support-background-8:  #E6E1F5;  /* @kind color */
+  --support-background-9:  #FFE0EC;  /* @kind color */
+  --support-background-10: #E1ECF5;  /* @kind color */
+  --support-background-11: #EBF0F5;  /* @kind color */
+  --support-background-12: #EDD0CD;  /* @kind color */
+
+  /* Analytics - categorical palette (leaf tokens, hex direct) */
+  --analytics-1:  #648DE6;  /* @kind color */
+  --analytics-2:  #BBA8F6;  /* @kind color */
+  --analytics-3:  #2EDCEA;  /* @kind color */
+  --analytics-4:  #C06868;  /* @kind color */
+  --analytics-5:  #FC9A61;  /* @kind color */
+  --analytics-6:  #FDDC4A;  /* @kind color */
+  --analytics-7:  #ACD942;  /* @kind color */
+  --analytics-8:  #68BEA8;  /* @kind color */
+  --analytics-9:  #EEA4DA;  /* @kind color */
+  --analytics-10: #A1C2FF;  /* @kind color */
+
+  /* Legacy / non-Figma semantic helpers (kept; not in the token set) */
+
+  /* =====================================================
+     COMPONENT TOKENS - reference the semantic layer above
+     (never raw --c-* primitives)
+     ===================================================== */
+
+  /* Button family - treatment x tone x state. References semantic tier only. */
+  --btn-radius:                 var(--radius-xs);  /* @kind radius */
+  /* solid - brand (primary) */
+  --btn-solid-bg:               var(--brand-background-primary);  /* @kind color */
+  --btn-solid-bg-hover:         var(--brand-background-hover);  /* @kind color */
+  --btn-solid-bg-active:        var(--brand-background-active);  /* @kind color */
+  --btn-solid-fg:               var(--text-on-color-primary);  /* @kind color */
+  /* outline - brand (secondary) */
+  --btn-outline-bg:             var(--background-primary);  /* @kind color */
+  --btn-outline-bg-hover:       var(--background-hover);  /* @kind color */
+  --btn-outline-bg-active:      var(--background-active);  /* @kind color */
+  --btn-outline-border:         var(--border-secondary);  /* @kind color */
+  --btn-outline-border-hover:   var(--brand-border-hover);  /* @kind color */
+  --btn-outline-border-active:  var(--brand-border-active);  /* @kind color */
+  --btn-outline-fg:             var(--text-primary);  /* @kind color */
+  /* hover/active label text is the shared semantic brand-text var (brand/text/hover,
+     brand/text/active), bound directly in JSX per Figma - no --btn-*-fg-hover/active alias. */
+  /* ghost - brand (tertiary) + text (link). Tertiary DEFAULT text is grey
+     (text/secondary per Figma), turning brand-blue only on hover/active. */
+  --btn-ghost-bg-hover:         var(--background-hover);  /* @kind color */
+  --btn-ghost-bg-active:        var(--background-active);  /* @kind color */
+  --btn-ghost-fg:               var(--text-secondary);  /* @kind color */
+  /* disabled (shared) */
+  --btn-disabled-bg:            var(--background-disabled);  /* @kind color */
+  --btn-disabled-fg:            var(--text-on-color-disabled);  /* @kind color */
+  --btn-disabled-border:        var(--border-disabled);  /* @kind color */
+  /* destructive tone */
+  --btn-solid-bg-destructive:          var(--error-background-primary);  /* @kind color */
+  --btn-solid-bg-destructive-hover:    var(--error-background-hover);  /* @kind color */
+  --btn-solid-bg-destructive-active:   var(--error-background-active);  /* @kind color */
+  --btn-outline-bg-destructive:        var(--error-background-muted);   /* @kind color */ /* secondary hover+active fill */
+  --btn-outline-border-destructive:    var(--error-border-primary);     /* @kind color */ /* secondary default+hover border */
+  --btn-outline-border-destructive-active: var(--error-border-active);  /* @kind color */ /* secondary active border */
+  --btn-ghost-fg-destructive:          var(--error-text-primary);  /* @kind color */
+  --btn-ghost-bg-destructive-hover:    var(--error-background-muted);  /* @kind color */
+  /* icon-button bg-fill (on) */
+  --btn-iconfill-bg:            var(--background-secondary);  /* @kind color */
+
+  /* ---- Button Group (segment states) -------------------------------------
+     Single-select spaced segments. The SELECTED look is view-keyed:
+     primary = solid brand fill, secondary = muted brand fill. Bindings drilled
+     from Figma "01 Button Group" per state. Badge inverts when the segment is
+     selected (white chip on the blue/muted fill). */
+  /* geometry */
+  --btngroup-radius:                     var(--radius-xs);              /* @kind radius */ /* 2px segment corners - own token, references the radius scale */
+  /* PRIMARY view: white fill + grey border */
+  --btngroup-bg:                         var(--background-primary);     /* @kind color */ /* primary unselected fill (white) */
+  --btngroup-border:                     var(--border-primary);         /* @kind color */ /* primary unselected/selected-secondary border (#d4d5d6) */
+  --btngroup-fg:                         var(--text-secondary);         /* @kind color */ /* unselected label (wt 400) */
+  --btngroup-icon:                       var(--icon-secondary);  /* @kind color */
+  /* SECONDARY view: grey fill, no border (Figma: background/secondary, no border class) */
+  --btngroup-bg-secondary:               var(--background-secondary);   /* @kind color */ /* secondary unselected fill (#edeef0) */
+  /* hover (both views share the same fill/fg; border differs) */
+  --btngroup-bg-hover:                   var(--background-hover);  /* @kind color */
+  --btngroup-border-hover:               var(--brand-border-hover);     /* @kind color */ /* PRIMARY hover border only; secondary has no border */
+  --btngroup-fg-hover:                   var(--brand-text-hover);  /* @kind color */
+  --btngroup-icon-hover:                 var(--brand-icon-hover);  /* @kind color */
+  /* selected - primary (solid blue fill + brand border) */
+  --btngroup-selected-bg:                var(--brand-background-primary);  /* @kind color */
+  --btngroup-selected-border:            var(--brand-border-active);  /* @kind color */
+  --btngroup-selected-fg:                var(--text-on-color-primary);  /* @kind color */ /* wt 600 */
+  --btngroup-selected-icon:              var(--icon-on-color-primary);  /* @kind color */
+  /* selected - secondary (muted blue fill + brand border) */
+  --btngroup-selected-bg-secondary:      var(--brand-background-muted);  /* @kind color */
+  --btngroup-selected-border-secondary:  var(--brand-border-primary);  /* @kind color */
+  --btngroup-selected-fg-secondary:      var(--brand-text-primary);     /* @kind color */ /* #3373dd - NOT brand-text-hover */
+  --btngroup-selected-icon-secondary:    var(--brand-icon-primary);  /* @kind color */
+  /* disabled */
+  --btngroup-disabled-bg:                var(--background-disabled);  /* @kind color */
+  --btngroup-disabled-border:            var(--border-disabled);  /* @kind color */
+  --btngroup-disabled-fg:                var(--text-on-color-disabled);  /* @kind color */
+  --btngroup-disabled-icon:              var(--icon-on-color-disabled);  /* @kind color */
+  --btngroup-disabled-selected-bg:       var(--background-active-disabled);  /* @kind color */ /* selected+disabled fill (#edeef0) */
+  --btngroup-disabled-selected-border:   var(--border-on-color-disabled);    /* @kind color */ /* selected+disabled border, both views (#d4d5d6) */
+  /* badge - default chip (unselected/hover) = brand-blue pill + white text;
+     PRIMARY selected inverts to a white chip with dark text;
+     SECONDARY selected keeps the default brand-blue chip (no inversion per Figma);
+     DISABLED greys the chip - fill contrasts the segment fill (the badge takes the
+     OTHER disabled grey from its segment), text is the disabled foreground. */
+  --btngroup-badge-bg:                   var(--brand-background-primary);  /* @kind color */
+  --btngroup-badge-fg:                   var(--text-on-color-primary);  /* @kind color */
+  --btngroup-badge-bg-selected:          var(--background-primary);     /* @kind color */ /* white pill - primary view only */
+  --btngroup-badge-fg-selected:          var(--text-on-color-secondary); /* @kind color */ /* dark text - primary view only */
+  --btngroup-badge-bg-disabled:          var(--background-active-disabled); /* @kind color */ /* unselected+disabled badge fill (#edeef0) */
+  --btngroup-badge-bg-disabled-selected: var(--background-disabled);        /* @kind color */ /* selected+disabled badge fill (#f4f5f6) */
+  --btngroup-badge-fg-disabled:          var(--text-on-color-disabled);     /* @kind color */ /* disabled badge text, both states (#6d707a) */
+
+  /* -- Segment Control -----------------------------------------------
+     "01 Segment control" (Figma 6609-32720). CONNECTED single-select segments. Distinct
+     from the btngroup block (whose secondary track is grey): here the UNSELECTED cell is
+     identical for both styles (white + grey border + secondary text), and segmentStyle
+     (fill|muted) changes ONLY the selected cell. Own block per the component-semantic-token rule. */
+  --segment-radius:                      var(--radius-xs);              /* @kind radius */ /* 2px segment corners */
+  --segment-shell-radius:                0.25rem;                       /* @kind radius */ /* 2.5px hairline shell (2px inner + 0.5px inset) */
+  --segment-shell-bg:                    var(--background-primary);     /* @kind color */ /* white shell behind the connected row */
+
+  /* Unselected (both styles) */
+  --segment-bg:                          var(--background-primary);     /* @kind color */ /* white */
+  --segment-border:                      var(--border-primary);         /* @kind color */ /* #d4d5d6 */
+  --segment-fg:                          var(--text-secondary);         /* @kind color */ /* #444f5c - wt 400 */
+  --segment-icon:                        var(--icon-secondary);  /* @kind color */
+
+  /* Hover (unselected) - brand emphasis (confirm vs set node in the visual gate) */
+  --segment-bg-hover:                    var(--background-hover);  /* @kind color */
+  --segment-border-hover:                var(--brand-border-hover);  /* @kind color */
+  --segment-fg-hover:                    var(--brand-text-hover);  /* @kind color */
+  --segment-icon-hover:                  var(--brand-icon-hover);  /* @kind color */
+
+  /* Fill - selected cell (solid blue) */
+  --segment-fill-selected-bg:            var(--brand-background-primary);  /* @kind color */
+  --segment-fill-selected-border:        var(--brand-border-active);  /* @kind color */
+  --segment-fill-selected-fg:            var(--text-on-color-primary);  /* @kind color */ /* wt 600 */
+  --segment-fill-selected-icon:          var(--icon-on-color-primary);  /* @kind color */
+
+  /* Muted - selected cell (pale blue). Border binds to brand/background/primary by NAME in
+     Figma (node 10116-38726/38738), NOT brand/border/primary - bind by name, not value. */
+  --segment-muted-selected-bg:           var(--brand-background-muted);    /* @kind color */ /* #ebf4ff */
+  --segment-muted-selected-border:       var(--brand-background-primary);  /* @kind color */ /* #4285f4 - Figma brand/background/primary */
+  --segment-muted-selected-fg:           var(--brand-text-primary);        /* @kind color */ /* #3373dd - wt 600 */
+  --segment-muted-selected-icon:         var(--brand-icon-primary);        /* @kind color */ /* #4285f4 - Figma brand/icon/primary */
+
+  /* Disabled. The label SPLITS across the two disabled states (confirmed on the set node):
+     unselected -> text/disabled (#d4d5d6, fainter); selected -> text/on-color-disabled (#6d707a).
+     The icon is icon/on-color-disabled for BOTH (no split). */
+  --segment-disabled-bg:                 var(--background-disabled);  /* @kind color */
+  --segment-disabled-border:             var(--border-disabled);  /* @kind color */
+  --segment-disabled-fg:                 var(--text-disabled);          /* @kind color */ /* unselected+disabled label - #d4d5d6 */
+  --segment-disabled-icon:               var(--icon-on-color-disabled); /* @kind color */ /* both disabled states - #969aa3 */
+  --segment-disabled-selected-bg:        var(--background-active-disabled);  /* @kind color */
+  --segment-disabled-selected-border:    var(--border-on-color-disabled);  /* @kind color */
+  --segment-disabled-selected-fg:        var(--text-on-color-disabled); /* @kind color */ /* selected+disabled label - #6d707a */
+
+  /* Badge recolors (counter via the Badge primitive) */
+  --segment-badge-bg:                    var(--brand-background-primary);  /* @kind color */ /* default blue chip */
+  --segment-badge-fg:                    var(--text-on-color-primary);  /* @kind color */
+  --segment-badge-bg-selected:           var(--background-primary);        /* @kind color */ /* inverted white chip - fill-selected only */
+  --segment-badge-fg-selected:           var(--text-on-color-secondary);  /* @kind color */
+  --segment-badge-bg-disabled:           var(--background-active-disabled);  /* @kind color */
+  --segment-badge-bg-disabled-selected:  var(--background-disabled);  /* @kind color */
+  --segment-badge-fg-disabled:           var(--text-on-color-disabled);  /* @kind color */
+
+  /* ----- Status - indicator + label -----------------------------------------
+     Figma "02 Status" (6659-33845) + "01 Status with label" (5526-13494);
+     base ".Status Base" (5526-13474). Replaces the retired StatusPill +
+     InlineStatus. Structural tokens + 12 categorical colors that alias
+     existing support/icon/always-dark tokens (no new primitives). Hover only
+     adds the chip; indicator/label colors are unchanged. Disabled is
+     color-agnostic. EXCLUDED malformed Figma variant: State=Small,
+     Color=Default, Flag Icon=Green (6659:33854). */
+  --status-radius:              var(--radius-xs);                /* @kind radius */ /* 2px box corners */
+  --status-bg-hover:            var(--background-hover);         /* @kind color */ /* #EBF4FF - hover chip */
+  --status-label:               var(--text-primary);            /* @kind color */ /* #161616 - label, default */
+  --status-label-disabled:      var(--text-on-color-disabled);  /* @kind color */ /* #6D707A - label, disabled */
+  --status-caret:               var(--icon-secondary);          /* @kind color */ /* #444F5C - dropdown caret */
+  --status-indicator-disabled:  var(--icon-disabled);           /* @kind color */ /* #D4D5D6 - dot/flag, disabled */
+  --status-dot-size:            10px;                            /* @kind spacing */ /* hand-rolled circle diameter */
+  --status-open-ring:           var(--icon-primary);            /* @kind color */ /* #969AA3 - hollow-ring stroke / outline flag */
+  /* 11 fill colors -> indicator fill; the 12th color `open` is a hollow ring (uses --status-open-ring above) */
+  --status-green:      var(--support-foreground-4);             /* @kind color */ /* #06BC75 */
+  --status-orange:     var(--support-foreground-2);             /* @kind color */ /* #FC602B */
+  --status-yellow:     var(--support-foreground-3);             /* @kind color */ /* #FFB23C */
+  --status-red:        var(--support-foreground-1);             /* @kind color */ /* #F52F1D */
+  --status-blue:       var(--support-foreground-7);             /* @kind color */ /* #4F68F1 */
+  --status-cyan:       var(--support-foreground-6);             /* @kind color */ /* #46CAD4 */
+  --status-purple:     var(--support-foreground-8);             /* @kind color */ /* #7A64C1 */
+  --status-pink:       var(--support-foreground-9);             /* @kind color */ /* #F45191 */
+  --status-light-grey: var(--support-foreground-11);            /* @kind color */ /* #B7C7D5 */
+  --status-grey:       var(--support-foreground-10);            /* @kind color */ /* #6285A3 */
+  --status-dark-grey:  var(--always-dark-background-primary);   /* @kind color */ /* #3F4757 */
+
+  /* Radio tokens - references match the Figma Style bound to each radio part 1:1 */
+  --radio-bg:               var(--background-primary);      /* @kind color */ /* fill - Figma background/primary */
+  --radio-border:           var(--border-secondary);        /* @kind color */ /* default ring - Figma border/secondary */
+  --radio-border-hover:     var(--brand-border-active);     /* @kind color */ /* hover/active ring - Figma brand/border/active */
+  --radio-border-selected:  var(--brand-border-primary);    /* @kind color */ /* selected ring - Figma brand/border/primary */
+  --radio-bg-selected:      var(--background-active);        /* @kind color */ /* selected fill band - Figma background/active */
+  --radio-dot:              var(--brand-background-primary); /* @kind color */ /* selected dot - Figma brand/background/primary */
+  --radio-bg-disabled:      var(--background-disabled);      /* @kind color */ /* disabled fill - Figma background/disabled */
+  --radio-border-disabled:  var(--border-on-color-disabled); /* @kind color */ /* disabled ring - Figma border/on-color-disabled */
+  --radio-dot-disabled:     var(--icon-on-color-disabled);   /* @kind color */ /* disabled dot - Figma icon/on-color-disabled */
+  --radio-label:            var(--text-primary);             /* @kind color */ /* label - Figma text/primary */
+  --radio-label-disabled:   var(--text-secondary);           /* @kind color */ /* disabled label - Figma text/secondary */
+
+  /* Checkbox tokens - references match the Figma Style bound to each checkbox part 1:1 */
+  --checkbox-bg:                 var(--background-primary);    /* @kind color */ /* box fill (enabled) - Figma background/primary */
+  --checkbox-border:             var(--border-secondary);      /* @kind color */ /* unchecked border - Figma border/secondary */
+  --checkbox-border-hover:       var(--brand-border-hover);    /* @kind color */ /* unchecked hover border - Figma brand/border/hover */
+  --checkbox-border-active:      var(--brand-border-active);   /* @kind color */ /* unchecked pressed border - Figma brand/border/active */
+  --checkbox-bg-selected:        var(--brand-background-primary); /* @kind color */ /* checked/indeterminate fill - Figma brand/background/primary */
+  --checkbox-bg-selected-hover:  var(--brand-background-hover);   /* @kind color */ /* checked/indeterminate hover fill - Figma brand/background/hover */
+  --checkbox-bg-selected-active: var(--brand-background-active);  /* @kind color */ /* checked/indeterminate pressed fill - Figma brand/background/active */
+  --checkbox-mark:               var(--icon-on-color-primary);    /* @kind color */ /* check/minus mark - Figma icon/on-color-primary */
+  --checkbox-bg-disabled:        var(--background-disabled);   /* @kind color */ /* disabled box fill - Figma background/disabled */
+  --checkbox-border-disabled:    var(--border-disabled);       /* @kind color */ /* disabled box border - Figma border/disabled */
+  --checkbox-mark-disabled:      var(--icon-on-color-disabled); /* @kind color */ /* disabled mark - Figma icon/on-color-disabled */
+  --checkbox-label:              var(--text-primary);          /* @kind color */ /* label - Figma text/primary */
+  --checkbox-label-disabled:     var(--text-secondary);        /* @kind color */ /* disabled label - Figma text/secondary */
+
+  /* Toggle Switch tokens - references match the Figma Style bound to each toggle part 1:1 */
+  --toggle-track-bg:              var(--background-primary);       /* @kind color */ /* off track fill - Figma background/primary */
+  --toggle-track-border:          var(--border-primary);           /* @kind color */ /* off track border - Figma border/primary */
+  --toggle-track-border-hover:    var(--brand-border-hover);       /* @kind color */ /* off hover border - Figma brand/border/hover */
+  --toggle-track-border-active:   var(--brand-border-active);      /* @kind color */ /* off pressed border - Figma brand/border/active */
+  --toggle-track-bg-on:           var(--brand-background-primary); /* @kind color */ /* on track fill - Figma brand/background/primary */
+  --toggle-track-bg-on-hover:     var(--brand-background-hover);   /* @kind color */ /* on hover fill - Figma brand/background/hover */
+  --toggle-track-bg-on-active:    var(--brand-background-active);  /* @kind color */ /* on pressed fill - Figma brand/background/active */
+  --toggle-knob:                  var(--icon-primary);             /* @kind color */ /* off knob - Figma icon/primary */
+  --toggle-knob-on:               var(--background-primary);       /* @kind color */ /* on knob - Figma background/primary */
+  --toggle-indicator:             var(--icon-primary);             /* @kind color */ /* off status icon (x) - Figma icon/primary */
+  --toggle-indicator-on:          var(--icon-on-color-primary);    /* @kind color */ /* on status icon () - Figma icon/on-color-primary */
+  --toggle-status-text:           var(--text-tertiary);            /* @kind color */ /* off "Inactive" - Figma text/tertiary */
+  --toggle-status-text-on:        var(--text-on-color-primary);    /* @kind color */ /* on "Active" - Figma text/on-color-primary */
+  --toggle-track-bg-disabled:     var(--background-disabled);      /* @kind color */ /* off disabled track - Figma background/disabled */
+  --toggle-track-bg-on-disabled:  var(--background-active-disabled); /* @kind color */ /* on disabled track - Figma background/active-disabled */
+  --toggle-track-border-disabled: var(--border-disabled);          /* @kind color */ /* disabled track border - Figma border/disabled */
+  --toggle-knob-disabled:         var(--icon-disabled);            /* @kind color */ /* off disabled knob - Figma icon/disabled */
+  --toggle-knob-on-disabled:      var(--icon-on-color-disabled);   /* @kind color */ /* on disabled knob - Figma icon/on-color-disabled */
+  --toggle-indicator-disabled:    var(--icon-disabled);            /* @kind color */ /* off disabled status icon - Figma icon/disabled */
+  --toggle-indicator-on-disabled: var(--icon-on-color-disabled);   /* @kind color */ /* on disabled status icon - Figma icon/on-color-disabled */
+  --toggle-status-text-disabled:  var(--text-on-color-disabled);   /* @kind color */ /* disabled "Active"/"Inactive" - Figma text/on-color-disabled */
+  --toggle-label:                 var(--text-primary);             /* @kind color */ /* external label - Figma text/primary */
+  --toggle-label-disabled:        var(--text-secondary);           /* @kind color */ /* disabled external label - Figma text/secondary */
+
+  /* Quick Filter tokens - references match the Figma Style bound to each Quick Filter Button part 1:1 */
+  --quickfilter-bg:              var(--background-muted);      /* @kind color */ /* default tile fill - Figma background/muted */
+  --quickfilter-bg-hover:        var(--background-hover);      /* @kind color */ /* hover fill - Figma background/hover */
+  --quickfilter-bg-selected:     var(--background-active);     /* @kind color */ /* active/selected fill - Figma background/active */
+  --quickfilter-border-selected: var(--brand-border-primary);  /* @kind color */ /* active/selected ring - Figma brand/border/primary */
+  --quickfilter-label:           var(--text-secondary);        /* @kind color */ /* label - Figma text/secondary */
+  --quickfilter-label-selected:  var(--text-primary);          /* @kind color */ /* selected label - Figma text/primary */
+  --quickfilter-value:           var(--text-primary);          /* @kind color */ /* value - Figma text/primary */
+
+  /* Badge tokens - references match the Figma "01 Badge" component 1:1.
+     Badge is a single (non-variant) component: a brand-blue pill with white
+     on-color text. These two tokens are the recolor lever - override them
+     (or pass an inline style) to re-theme the badge for any severity. */
+  --badge-bg:   var(--brand-background-primary);  /* @kind color */ /* fill - Figma brand/background/primary */
+  --badge-text: var(--text-on-color-primary);     /* @kind color */ /* count text - Figma text/on-color-primary */
+
+  /* Lozenge tokens - 1:1 with the Figma "01 Lozenge" Style bindings.
+     A Lozenge is a labelled text chip (NOT a count Badge, NOT StatusPill).
+     Six color "styles" (the Figma "Style" property -> the `lozengeStyle` prop)
+     x two treatments (filled when `outline` is off, outlined when on). Each
+     token references the semantic/support tier the Figma Style binds to - so
+     recoloring the whole component lives here, in one place.
+       *-bg            filled fill          *-text            filled label
+       *-outline-bg    outlined fill        *-outline-border  outlined stroke
+       *-outline-text  outlined label
+     Note Figma's deliberate asymmetries, faithfully preserved: Orange uses a
+     dark label on both treatments; Grey's outlined treatment has a transparent
+     fill with a light (background/secondary) stroke. */
+  /* Blue - Figma brand + support/7 */
+  --lozenge-blue-bg:             var(--brand-background-primary); /* @kind color */ /* brand/background/primary */
+  --lozenge-blue-text:           var(--text-on-color-primary);    /* @kind color */ /* text/on-color-primary */
+  --lozenge-blue-outline-bg:     var(--support-background-7);     /* @kind color */ /* support/background/7 */
+  --lozenge-blue-outline-border: var(--brand-background-primary); /* @kind color */ /* brand/background/primary */
+  --lozenge-blue-outline-text:   var(--brand-text-primary);       /* @kind color */ /* brand/text/primary */
+  /* Red - Figma support/1 */
+  --lozenge-red-bg:              var(--support-foreground-1);     /* @kind color */ /* support/foreground/1 */
+  --lozenge-red-text:            var(--text-on-color-primary);    /* @kind color */ /* text/on-color-primary */
+  --lozenge-red-outline-bg:      var(--support-background-1);     /* @kind color */ /* support/background/1 */
+  --lozenge-red-outline-border:  var(--support-foreground-1);     /* @kind color */ /* support/foreground/1 */
+  --lozenge-red-outline-text:    var(--support-foreground-1);     /* @kind color */ /* support/foreground/1 */
+  /* Orange - Figma support/3 (dark label) */
+  --lozenge-orange-bg:             var(--support-foreground-3);   /* @kind color */ /* support/foreground/3 */
+  --lozenge-orange-text:           var(--text-on-color-secondary);/* @kind color */ /* text/on-color-secondary */
+  --lozenge-orange-outline-bg:     var(--support-background-3);   /* @kind color */ /* support/background/3 */
+  --lozenge-orange-outline-border: var(--support-foreground-3);   /* @kind color */ /* support/foreground/3 */
+  --lozenge-orange-outline-text:   var(--text-secondary);         /* @kind color */ /* text/secondary */
+  /* Green - Figma support/4 */
+  --lozenge-green-bg:             var(--support-foreground-4);    /* @kind color */ /* support/foreground/4 */
+  --lozenge-green-text:           var(--text-on-color-primary);   /* @kind color */ /* text/on-color-primary */
+  --lozenge-green-outline-bg:     var(--support-background-4);    /* @kind color */ /* support/background/4 */
+  --lozenge-green-outline-border: var(--support-foreground-4);    /* @kind color */ /* support/foreground/4 */
+  --lozenge-green-outline-text:   var(--support-foreground-4);    /* @kind color */ /* support/foreground/4 */
+  /* Dark Grey - Figma support/10 + support/11 */
+  --lozenge-dark-grey-bg:             var(--support-foreground-10); /* @kind color */ /* support/foreground/10 */
+  --lozenge-dark-grey-text:           var(--text-on-color-primary); /* @kind color */ /* text/on-color-primary */
+  --lozenge-dark-grey-outline-bg:     var(--support-background-11);  /* @kind color */ /* support/background/11 */
+  --lozenge-dark-grey-outline-border: var(--support-foreground-10);  /* @kind color */ /* support/foreground/10 */
+  --lozenge-dark-grey-outline-text:   var(--support-foreground-10);  /* @kind color */ /* support/foreground/10 */
+  /* Grey - Figma background/secondary (transparent outlined fill) */
+  --lozenge-grey-bg:             var(--background-secondary);     /* @kind color */ /* background/secondary */
+  --lozenge-grey-text:           var(--text-secondary);          /* @kind color */ /* text/secondary */
+  --lozenge-grey-outline-bg:     transparent;                    /* @kind color */ /* no fill (Figma: none) */
+  --lozenge-grey-outline-border: var(--background-secondary);     /* @kind color */ /* background/secondary */
+  --lozenge-grey-outline-text:   var(--text-secondary);          /* @kind color */ /* text/secondary */
+
+  /* ----- Tag - interactive labelled chip ------------------------------------
+     Figma "01 Tag" (10504:52475) + "02 User Tag" (10508:52662). Grey/Outline/
+     Primary/Dark fills (Dark = plain Tag only). Light styles (Grey/Outline) shift
+     fill across Default->Hover->Active; Primary/Dark keep their fill and only gain
+     the orange focus ring. Distinct from --lozenge-* (static label) and the
+     status pills. */
+  --tag-grey-bg:          var(--background-secondary);           /* @kind color */ /* #EDEEF0 */
+  --tag-grey-text:        var(--text-secondary);                 /* @kind color */ /* #444F5C */
+  --tag-outline-bg:       var(--background-primary);             /* @kind color */ /* #FFFFFF */
+  --tag-outline-border:   var(--border-primary);                 /* @kind color */ /* #D4D5D6 */
+  --tag-outline-text:     var(--text-primary);                   /* @kind color */ /* #161616 */
+  --tag-primary-bg:       var(--brand-background-primary);       /* @kind color */ /* #4285F4 */
+  --tag-primary-text:     var(--text-on-color-primary);          /* @kind color */ /* #FFFFFF */
+  --tag-dark-bg:          var(--always-dark-background-primary); /* @kind color */ /* #3F4757 */
+  --tag-dark-text:        var(--text-on-color-primary);          /* @kind color */ /* #FFFFFF */
+  /* shared interaction states */
+  --tag-bg-hover:         var(--background-hover);               /* @kind color */ /* #EBF4FF - light styles */
+  --tag-bg-active:        var(--background-active);              /* @kind color */ /* #DBEBFF - light styles */
+  --tag-border-hover:     var(--brand-border-hover);             /* @kind color */ /* #4285F4 - outline hover */
+  --tag-border-active:    var(--brand-border-active);            /* @kind color */ /* #0060FF - outline active */
+  --tag-ring:             var(--focus-border-primary);           /* @kind color */ /* #F5964ECC - orange focus ring */
+  /* disabled */
+  --tag-bg-disabled:      var(--background-active-disabled);     /* @kind color */ /* #EDEEF0 - filled styles */
+  --tag-bg-disabled-soft: var(--background-disabled);           /* @kind color */ /* #F4F5F6 - UserTag pill (softer than Tag) */
+  --tag-text-disabled:    var(--text-on-color-disabled);         /* @kind color */ /* #6D707A */
+  --tag-icon-disabled:    var(--icon-on-color-disabled);         /* @kind color */ /* #969AA3 */
+  --tag-border-disabled:  var(--border-disabled);                /* @kind color */ /* #D4D5D6 - outline */
+
+  /* -- Accordion ------------------------------------------------------
+     Figma "Accordion" (24824:6385). Axes: size x active(expanded) x state.
+     The `state` axis (default/error/success) recolors the container BORDER and
+     the header FILL; the body stays white in every state. Only the DEFAULT
+     state changes its header fill between collapsed (white) and expanded
+     (background/secondary, grey); error/success use their muted fill in BOTH
+     collapsed and expanded. Border + 4px radius live on the container; the
+     header gets top corners via the container's overflow clip. Each token is a
+     1:1 alias of the semantic Style Figma binds - recolor lives here. */
+  --accordion-radius:             var(--radius-sm);               /* @kind radius */ /* 4px container corners (Figma raw rounded-[4px], NOT borderRadius/1=2px) */
+  --accordion-body-bg:            var(--background-primary);      /* @kind color */ /* white body - background/primary */
+  --accordion-title:              var(--text-primary);            /* @kind color */ /* heading text - text/primary */
+  --accordion-body-text:          var(--text-primary);            /* @kind color */ /* body text - text/primary */
+  /* caret has no token - it is the library IconButton (styleProp="action"), whose rest
+     icon color is already icon/secondary (#444F5C), 1:1 with Figma's caret binding. */
+  /* default state */
+  --accordion-border:             var(--border-primary);          /* @kind color */ /* #D4D5D6 - border/primary */
+  --accordion-header-bg:          var(--background-primary);      /* @kind color */ /* white - collapsed default header (background/primary) */
+  --accordion-header-bg-expanded: var(--background-secondary);    /* @kind color */ /* #EDEEF0 - expanded default header (background/secondary) */
+  /* error state - muted fill in BOTH collapsed and expanded */
+  --accordion-border-error:       var(--error-border-primary);    /* @kind color */ /* #C42106 - error/border/primary */
+  --accordion-header-bg-error:    var(--error-background-muted);  /* @kind color */ /* #FEEAE6 - error/background/muted */
+  /* success state - muted fill in BOTH collapsed and expanded */
+  --accordion-border-success:     var(--success-border-primary);  /* @kind color */ /* #56BF4D - success/border/primary */
+  --accordion-header-bg-success:  var(--success-background-muted);/* @kind color */ /* #EFFAEE - success/background/muted */
+
+  /* --- Card --------------------------------------------------------------
+     Single Card-scoped alias. Figma "Detail Card" uses a raw 6px corner
+     radius with no matching step in the --radius-* scale (4px -> 8px), so
+     the value lives here rather than extending the shared scale. */
+  --card-radius:                  0.6rem;                         /* @kind radius */ /* 6px container corners */
+
+  /* breadcrumb - items-driven path nav; improvised public group over the
+     ".Breadcrumb" building block (Figma 6593:30950). 1:1 semantic aliases. */
+  --breadcrumb-text:               var(--text-primary);        /* @kind color */ /* #161616 - normal crumb label */
+  --breadcrumb-text-hover:         var(--brand-text-primary);  /* @kind color */ /* #3373DD - normal crumb hover */
+  --breadcrumb-text-active:        var(--brand-text-active);   /* @kind color */ /* #0060FF - active/current crumb */
+  --breadcrumb-text-active-hover:  var(--brand-text-hover);    /* @kind color */ /* #0060FF - active hover (same hue; active is non-interactive - defined for 1:1 fidelity, not wired) */
+  --breadcrumb-icon:               var(--icon-secondary);      /* @kind color */ /* #444F5C - separator chevron + icon-content glyphs */
+
+  /* Pagination has NO component-token block - it is a molecule (like Toast /
+     Notification) that consumes semantic tokens directly. See Pagination.jsx. */
+
+  /* -- Calendar cell tokens (day cell - month chip - filter row) ------------- */
+  /* Each value aliases the semantic token the matching Figma layer binds, per state.
+     Resolved per cell in DateTimeBases.jsx build (nodes 6629-32733 / 6891-38981 / 6654-34282).
+     Seed tokens only - remainder filled in Tasks 5-7 as bindings are read from Figma. */
+  /* day cell - Task 5 bindings (node 6629-32733 .Calendar Date Base) */
+  --calendar-cell-text:          var(--text-secondary);           /* @kind color */ /* default / range cell label - text/secondary */
+  --calendar-cell-text-muted:    var(--text-disabled);            /* @kind color */ /* out-of-month cell label - text/disabled */
+  --calendar-cell-text-disabled: var(--text-on-color-disabled);   /* @kind color */ /* disabled cell label - text/on-color-disabled */
+  --calendar-cell-text-selected: var(--text-on-color-primary);    /* @kind color */ /* selected (single/start/end/range) label - text/on-color-primary */
+  --calendar-cell-text-today:    var(--text-secondary);           /* @kind color */ /* today (unselected) label - text/secondary (FIXED: was support/foreground/8) */
+  --calendar-cell-bg-hover:      var(--background-hover);         /* @kind color */ /* hover Container fill - background/hover */
+  --calendar-cell-bg-selected:   var(--brand-background-primary); /* @kind color */ /* selected Container fill - brand/background/primary */
+  --calendar-cell-bg-range:      var(--brand-background-primary); /* @kind color */ /* in-range Container fill - brand/background/primary (FIXED: was brand/background/muted) */
+  --calendar-cell-bg-today:      var(--brand-background-muted);   /* @kind color */ /* today Container fill - brand/background/muted (FIXED: was support/background/8) */
+  /* month chip - Task 6 bindings (node 6891-38981 .Calendar Month Base) */
+  --calendar-month-bg-default:   var(--background-muted);          /* @kind color */ /* default chip fill - background/muted */
+  --calendar-month-bg-hover:     var(--background-hover);          /* @kind color */ /* hover chip fill - background/hover */
+  --calendar-month-bg-selected:  var(--background-active);         /* @kind color */ /* selected chip fill - background/active */
+  --calendar-month-text-default: var(--text-secondary);            /* @kind color */ /* default/hover label - text/secondary */
+  --calendar-month-text-selected:var(--text-primary);              /* @kind color */ /* selected label - text/primary */
+  --calendar-month-text-disabled:var(--text-on-color-disabled);    /* @kind color */ /* disabled label - text/on-color-disabled */
+  /* filter row - Task 7 bindings (node 6654-34282 .Calendar Filter Base) */
+  --calendar-filter-bg-default:       transparent;                     /* @kind color */ /* default row fill - no fill */
+  --calendar-filter-bg-hover:         var(--background-active);        /* @kind color */ /* hover row fill - background/active (FIXED: Figma 6654:38305 shows background/active) */
+  --calendar-filter-bg-selected:      var(--background-active);        /* @kind color */ /* selected row fill - background/active */
+  --calendar-filter-accent:           var(--brand-background-primary); /* @kind color */ /* selected indicator - brand/background/primary */
+  --calendar-filter-accent-hover:     var(--background-hover);         /* @kind color */ /* hover indicator - background/hover */
+  --calendar-filter-text:             var(--text-secondary);           /* @kind color */ /* all states label - text/secondary */
+
+  /* -- Time cell tokens ------------------------------------------------------ */
+  /* Task 8 bindings (node 6891-39176 .Time Base) - per state: */
+  --time-cell-text:          var(--text-secondary);           /* @kind color */ /* default text - text/secondary */
+  --time-cell-text-active:   var(--text-primary);             /* @kind color */ /* active (pale-blue) text - text/primary */
+  --time-cell-text-disabled: var(--text-on-color-disabled);   /* @kind color */ /* disabled text - text/on-color-disabled */
+  --time-cell-text-selected: var(--text-on-color-primary);    /* @kind color */ /* selected text - text/on-color-primary */
+  --time-cell-bg-hover:      var(--background-hover);         /* @kind color */ /* hover fill - background/hover (#EBF4FF) */
+  --time-cell-bg-active:     var(--background-active);        /* @kind color */ /* active fill - background/active (#DBEBFF) */
+  --time-cell-bg-selected:   var(--brand-background-primary); /* @kind color */ /* selected fill - brand/background/primary (#4285F4) */
+
+  /* -- MenuBar tokens ------------------------------------------------------
+     Global menu bar (node 24730:588). Component-scoped on purpose: the white
+     on-dark hover/active OVERLAYS have no semantic Style in Figma (the source
+     uses raw rgba), so they live here keyed to the MenuBar rather than as a
+     generic --background-* name that could be misapplied to a light surface.
+     The T1 gradients are the sanctioned T1/Search "AI mode" exception (not in
+     Figma) - composed from the --c-t1-* primitives so no hex leaks into JSX. */
+  --menubar-overlay-hover:   rgba(255, 255, 255, 0.08);  /* @kind color */ /* on-color icon-button / workspace hover - white @ 8% */
+  --menubar-overlay-active:  rgba(255, 255, 255, 0.16);  /* @kind color */ /* on-color icon-button / workspace active - white @ 16% */
+  --menubar-t1-gradient:     linear-gradient(315deg, var(--c-t1-blue-1) 0%, var(--c-t1-blue-2) 50%, var(--c-t1-green-1) 100%);  /* @kind color */ /* T1 toggle cell (active) */
+  --menubar-t1-cta-gradient: linear-gradient(320deg, var(--c-t1-blue-1) 8%, var(--c-t1-blue-3) 39%, var(--c-t1-green-2) 92%);   /* @kind color */ /* T1 "Ask" CTA fill */
+  --menubar-t1-border-gradient: linear-gradient(94deg, rgba(123, 235, 236, 0.4) 0%, rgba(147, 124, 249, 0.4) 100%);            /* @kind color */ /* T1 search field border (over white) */
+
+  /* =====================================================
+     TYPOGRAPHY
+     Aligned 1:1 with the Figma typography variables (ARCFontTokens.json).
+     Atomic scale tokens named property/variant -> --typography-<property>-<variant>.
+     Sizes & line-heights are rem-tenths (root is 62.5%, so 1.4rem = 14px),
+     mirroring the px values Figma stores. These are leaf tokens.
+     ===================================================== */
+
+  /* font-family */
+  --typography-font-family-primary: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;  /* @kind font */
+
+  /* font-weight - key is the CSS weight; comment is the Figma style name.
+     Defined 1:1 with Figma, but the designs only use 400 (Regular) and
+     600 (SemiBold). 200 (Thin) and 500 (Medium) are intentionally unused -
+     no .ttf for them in fonts/ and none needed. */
+  --typography-font-weight-100: 100;  /* @kind font */ /* Ultrathin */
+  --typography-font-weight-200: 200;  /* @kind font */ /* Thin */
+  --typography-font-weight-300: 300;  /* @kind font */ /* Light */
+  --typography-font-weight-400: 400;  /* @kind font */ /* Regular */
+  --typography-font-weight-500: 500;  /* @kind font */ /* Medium */
+  --typography-font-weight-600: 600;  /* @kind font */ /* Semibold */
+  --typography-font-weight-700: 700;  /* @kind font */ /* Bold */
+  --typography-font-weight-800: 800;  /* @kind font */ /* Extrabold */
+  --typography-font-weight-900: 900;  /* @kind font */ /* Black */
+
+  /* font-size (rem-tenths; px in comment) */
+  --typography-font-size-12: 1.2rem;  /* @kind font */ /* 12px */
+  --typography-font-size-14: 1.4rem;  /* @kind font */ /* 14px */
+  --typography-font-size-16: 1.6rem;  /* @kind font */ /* 16px */
+  --typography-font-size-18: 1.8rem;  /* @kind font */ /* 18px */
+  --typography-font-size-20: 2.0rem;  /* @kind font */ /* 20px */
+  --typography-font-size-24: 2.4rem;  /* @kind font */ /* 24px */
+  --typography-font-size-28: 2.8rem;  /* @kind font */ /* 28px */
+  --typography-font-size-32: 3.2rem;  /* @kind font */ /* 32px */
+
+  /* line-height (absolute, rem-tenths; px in comment) */
+  --typography-line-height-16: 1.6rem;  /* @kind font */ /* 16px */
+  --typography-line-height-20: 2.0rem;  /* @kind font */ /* 20px */
+  --typography-line-height-22: 2.2rem;  /* @kind font */ /* 22px */
+  --typography-line-height-24: 2.4rem;  /* @kind font */ /* 24px */
+  --typography-line-height-32: 3.2rem;  /* @kind font */ /* 32px */
+  --typography-line-height-36: 3.6rem;  /* @kind font */ /* 36px */
+  --typography-line-height-40: 4.0rem;  /* @kind font */ /* 40px */
+  --typography-line-height-48: 4.8rem;  /* @kind font */ /* 48px */
+
+  /* letter-spacing / paragraph: the Figma set defines letter-spacing-0,
+     paragraph-spacing-0, paragraph-indent-0 - all literally 0. They are the
+     CSS default for every element, so we intentionally DON'T materialize them
+     as tokens (nothing to override; a token that is always 0 carries no value).
+     See design-qa references/token-audit.md  Intentionally-omitted source tokens. */
+
+  /* Legacy ratio line-heights (kept; not in the Figma variable set, which is
+     absolute-only). Consumed solely by the base element styles below -
+     --lh-base on <body>, --lh-tight on <h1>-<h6>. No component/page uses them
+     directly. The Figma --typography-line-height-* tokens are absolute (px),
+     so they can't 1:1 replace a ratio without pinning a per-element value. */
+  --lh-tight:      1.2;      /* @kind font */ /* ratio - base headings */
+  --lh-base:       1.7;      /* @kind font */ /* ratio - theme.scss $line-height-base, base body */
+
+  /* =====================================================
+     SPACING (theme.scss - rem-tenths)
+     ===================================================== */
+  --sp-xxs:  0.4rem;  /* @kind spacing */ /* 4px */
+  --sp-xs:   0.8rem;  /* @kind spacing */ /* 8px - $padding-xs */
+  --sp-sm:   1.2rem;  /* @kind spacing */ /* 12px - $padding-sm */
+  --sp-md:   1.6rem;  /* @kind spacing */ /* 16px - $padding-md */
+  --sp-lg:   2.4rem;  /* @kind spacing */ /* 24px - $padding-lg */
+  --sp-xl:   3.2rem;  /* @kind spacing */ /* 32px */
+  --sp-2xl:  4.8rem;  /* @kind spacing */ /* 48px */
+  --sp-3xl:  6.4rem;  /* @kind spacing */ /* 64px */
+
+  /* Radii - historically very small (2px) */
+  --radius-xs:   0.2rem;  /* @kind radius */ /* 2px - base - buttons, inputs */
+  --radius-sm:   0.4rem;  /* @kind radius */ /* 4px - hover pill around tertiary */
+  --radius-md:   0.8rem;  /* @kind radius */ /* 8px - mobile variants */
+  --radius-pill: 2rem;    /* @kind radius */ /* 20px - chips */
+  --radius-full: 9999px;  /* @kind radius */ /* non-rounding cap - avatars, dots */
+
+  /* Borders */
+  --border-width:  0.1rem;  /* @kind spacing */ /* 1px */
+  --border-style:  solid;  /* @kind other */
+  --border-base-def: var(--border-width) var(--border-style) var(--border-primary);  /* @kind other */
+
+  /* Shadows */
+  --shadow-color:  rgba(0, 0, 0, 0.15);  /* @kind shadow */
+  --shadow-1:      0 0.2rem 0.8rem var(--shadow-color);        /* @kind shadow */ /* 0 2px 8px - $shadow-1-down, box-shadow-base */
+  --shadow-card:   0 0.2rem 0.8rem rgba(0, 0, 0, 0.09);         /* @kind shadow */ /* 0 2px 8px - $card-shadow */
+  --shadow-hover:  0 0.2rem 0.8rem rgba(22, 22, 22, 0.32);      /* @kind shadow */ /* 0 2px 8px - tile hover */
+  --shadow-300:    0 0.2rem 0.4rem rgba(22, 22, 26, 0.124);     /* @kind shadow */ /* 0 2px 4px - Figma shadows/300 (#16161A @ 12.4%); DateView/DateTimePicker panel */
+  --shadow-500:    0 0.8rem 1.6rem rgba(22, 22, 26, 0.12);      /* @kind shadow */ /* 0 8px 16px - Figma shadows/500 (#16161A @ 12%); Toast elevation */
+  --shadow-inset-recessed: inset 0 0.2rem 0.6rem rgba(0, 0, 0, 0.24);  /* @kind shadow */ /* inset 0px 2px 6px - App Grid nested tile group "recessed panel" (Figma node 41:3247); no non-inset shadow token matches this value */
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);  /* @kind other */
+  --dur-fast:      120ms;  /* @kind other */
+  --dur-base:      200ms;  /* @kind other */
+  --dur-slow:      400ms;  /* @kind other */
+
+  /* Control sizes */
+  --ctl-h-sm:  2.4rem;  /* @kind spacing */ /* 24px */
+  --ctl-h-md:  3.2rem;  /* @kind spacing */ /* 32px */
+  --ctl-h-lg:  3.2rem;  /* @kind spacing */ /* 32px */
+
+  /* Layout */
+  --layout-header-h: 6.4rem;  /* @kind spacing */ /* 64px */
+}
+
+/* =========================================================
+   BASE ELEMENT STYLES - semantic vars
+   Usage: any page that imports this file gets these defaults.
+   Original uses 10px html base (rem-tenths). We match.
+   ========================================================= */
+html { font-size: 62.5%; }        /* 1rem = 10px */
+body {
+  margin: 0;
+  font-family: var(--typography-font-family-primary);
+  font-size: var(--typography-font-size-14);
+  line-height: var(--lh-base);
+  color: var(--text-primary);
+  background: var(--background-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: var(--typography-font-weight-600); color: var(--text-primary); line-height: var(--lh-tight); }
+h1 { font-size: var(--typography-font-size-24); }
+h2 { font-size: var(--typography-font-size-20); }
+h3 { font-size: var(--typography-font-size-18); }
+h4 { font-size: var(--typography-font-size-16); }
+h5 { font-size: var(--typography-font-size-14); }
+h6 { font-size: var(--typography-font-size-12); letter-spacing: 0.04rem; text-transform: uppercase; color: var(--text-secondary); }
+
+p    { margin: 0 0 var(--sp-sm); font-size: var(--typography-font-size-14); color: var(--text-primary); }
+small{ font-size: var(--typography-font-size-12); color: var(--text-secondary); }
+a    { color: var(--brand-text-primary); text-decoration: none; }
+a:hover { color: var(--text-hover); text-decoration: underline; }
+
+code, kbd, samp, pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--background-secondary);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-xs);
+}
+
+hr { border: 0; border-top: var(--border-base-def); margin: var(--sp-lg) 0; }
+
+/* ============================================================
+   TOC MODULE TOKENS (--toc-*) - folded in from the former
+   colors_and_type.toc.css per the unified module model (single
+   token file, slug-namespaced). Extends Arcade; references
+   Arcade --c-* primitives where a hue already exists.
+   ============================================================ */
+:root {
+  /* ============================================================
+     1. PRIMITIVES - raw TOC hues (--toc-c-*)
+     The indigo / blue / orange ramps are all new (no Arcade
+     equivalent). white-10 (#FFFFFF) aliases Arcade's --c-white
+     instead of redeclaring the hex; white-20 (#F6F6F6) is new.
+     ============================================================ */
+
+  /* INDIGO - TOC indigo/violet ramp */
+  --toc-c-indigo-1:    #F3F4FF;
+  --toc-c-indigo-10:   #FAF1FF;
+  --toc-c-indigo-20:   #E6E7FF;
+  --toc-c-indigo-30:   #E6E3FF;
+  --toc-c-indigo-40:   #AA9DFF;
+  --toc-c-indigo-50:   #8C94FF;
+  --toc-c-indigo-60:   #7C6BFF;
+  --toc-c-indigo-70:   #8659DF;
+  --toc-c-indigo-80:   #C870FF;
+  --toc-c-indigo-90:   #AD54E5;
+  --toc-c-indigo-100:  #9B33DD;
+
+  /* BLUE - TOC blue ramp */
+  --toc-c-blue-10:     #EBF8FA;
+  --toc-c-blue-20:     #BEDBFF;
+  --toc-c-blue-30:     #1A6CC4;
+  --toc-c-blue-40:     #505DFF;
+  --toc-c-blue-50:     #432DD7;
+  --toc-c-blue-60:     #242DA1;
+
+  /* ORANGE - TOC orange/red accents */
+  --toc-c-orange-10:   #C18447;
+  --toc-c-orange-20:   #8B2C2C;
+  --toc-c-orange-30:   #EF4444;
+
+  /* WHITE - neutrals */
+  --toc-c-white-10:    var(--c-white);   /* #FFFFFF - aliases Arcade --c-white (no new hue) */
+  --toc-c-white-20:    #F6F6F6;          /* new TOC hue - Arcade has no exact equivalent */
+
+  /* ============================================================
+     2. SEMANTIC - role tokens (reference a --toc-c-* primitive)
+     Mirrors the Figma group -> leaf hierarchy. Figma's working leaf
+     numbers (bg N, text N, Icon N) are kept as disambiguators.
+     ============================================================ */
+
+  /* BACKGROUND (Figma group "background" - FRAME_FILL / SHAPE_FILL) */
+  --toc-background-1:               var(--toc-c-white-10);   /* bg */
+  --toc-background-landing-2:       var(--toc-c-white-20);   /* landing - bg 2 */
+  --toc-background-landing-3:       var(--toc-c-blue-10);    /* landing - bg 3 */
+  --toc-background-ai-button-4:     var(--toc-c-blue-60);    /* ai button - bg 4 */
+  --toc-background-ai-button-10:    var(--toc-c-indigo-90);  /* ai button - bg 10 */
+  --toc-background-nba-summary-5:   var(--toc-c-indigo-10);  /* nba summary - bg 5 */
+  --toc-background-nba-summary-7:   var(--toc-c-indigo-20);  /* nba summary - bg 7 */
+  --toc-background-cse-response-6:  var(--toc-c-indigo-30);  /* cse response - bg 6 */
+  --toc-background-cse-response-7:  var(--toc-c-indigo-30);  /* cse response - bg 7 */
+  --toc-background-banner-8:        var(--toc-c-indigo-60);  /* banner - bg 8 */
+  --toc-background-banner-9:        var(--toc-c-indigo-70);  /* banner - bg 9 */
+  --toc-background-button-11:       var(--toc-c-orange-10);  /* button - bg 11 */
+  --toc-background-button-12:       var(--toc-c-orange-20);  /* button - bg 12 */
+  --toc-background-card-13:         var(--toc-c-orange-30);  /* card - bg 13 */
+
+  /* TEXT (Figma group "text" - TEXT_FILL) */
+  --toc-text-1:  var(--toc-c-indigo-10);  /* text */
+  --toc-text-2:  var(--toc-c-blue-30);    /* text 2 */
+  --toc-text-3:  var(--toc-c-blue-40);    /* text 3 */
+  --toc-text-4:  var(--toc-c-blue-60);    /* text 4 */
+
+  /* ICON (Figma group "icons" - FRAME_FILL / SHAPE_FILL) */
+  --toc-icon-1:  var(--toc-c-blue-40);    /* Icon */
+  --toc-icon-2:  var(--toc-c-blue-50);    /* Icon 2 */
+  --toc-icon-3:  var(--toc-c-indigo-80);  /* Icon 3 */
+
+  /* BORDER (Figma group "border" - STROKE; leaves named "Icon" in Figma) */
+  --toc-border-1:  var(--toc-c-blue-20);    /* Icon */
+  --toc-border-2:  var(--toc-c-indigo-40);  /* Icon 2 */
+  --toc-border-3:  var(--toc-c-indigo-50);  /* Icon 3 */
+
+  /* ============================================================
+     CSAT - sentiment breakdown palette (categorical LEAF tokens, hex
+     direct - mirrors Arcade's --analytics-* / --support-* categorical
+     leaf convention). These sentiment hues have no Arcade or TOC-ramp
+     equivalent and are un-tokenized raw hex in Figma, so they land here
+     bound by exact value + role. Source: Figma "Home Cards" CSAT variant
+     (SP-3.0 2548:74624) - the CSAT/DSAT progress bars.
+     ============================================================ */
+  --toc-csat-1:      #86DA5B;   /* Very Satisfied bar (green) */
+  --toc-csat-2:      #E39B50;   /* Neutral bar (orange) */
+  --toc-csat-3:      #A8D891;   /* Satisfied bar (light green) */
+  --toc-csat-4:      #D04E35;   /* Very Dissatisfied bar (red) */
+  --toc-csat-track:  #334399;   /* bar track base - applied at 10% alpha in JS */
+
+  /* ============================================================
+     RADII - TOC radius extensions
+     Arcade's scale is 2/4/8/20/9999px (--radius-xs...full); 16px has no
+     Arcade equivalent but is a visible, load-bearing corner on panel
+     surfaces (the CseAssistant card + its collapsed rail). A raw value
+     token (radii have no hue tier), slug-namespaced so it can't clash.
+     ============================================================ */
+  --toc-radius-lg:  16px;   /* CseAssistant panel + collapsed rail corner (Figma rounded-[16px]) */
+
+  /* ============================================================
+     3. COMPONENT - per-component tokens (reference the semantic tier)
+     None yet. Added per TOC component as it is built, e.g.:
+       --toc-mywidget-bg: var(--toc-background-card-13);
+     ============================================================ */
+}
+
+
+/* ============================================================
+   PLG MODULE TOKENS (--plg-*) - folded in from PR #5 per the unified
+   module model (single token file, slug-namespaced). Isolated from the
+   Arcade tiers; semantics reference PLG primitives only.
+   ============================================================ */
+:root {
+  /* =====================================================
+     ===================================================== */
+
+  /* ---- PLG PRIMITIVES (--plg-<hue>-<step>) - raw hues, hex direct ---- */
+  /* teal */
+  --plg-teal-20:  #D5F6DA;  /* @kind color */
+  --plg-teal-30:  #F1FFF5;  /* @kind color */
+  --plg-teal-40:  #038C6F;  /* @kind color */
+  --plg-teal-50:  #009966;  /* @kind color */
+  --plg-teal-60:  #00BBA7;  /* @kind color */
+  --plg-teal-70:  #009689;  /* @kind color */
+  --plg-teal-80:  #1A7F3C;  /* @kind color */
+  --plg-teal-90:  #079455;  /* @kind color */
+  --plg-teal-100: #003830;  /* @kind color */
+  /* blue */
+  --plg-blue-10:  #F2F7FF;  /* @kind color */
+  --plg-blue-15:  #EDF5FF;  /* @kind color */
+  --plg-blue-20:  #60FAFF;  /* @kind color */
+  --plg-blue-30:  #84D7F1;  /* @kind color */
+  --plg-blue-40:  #609FFF;  /* @kind color */
+  --plg-blue-45:  #1B90B4;  /* @kind color */
+  --plg-blue-50:  #4285F4;  /* @kind color */ /* coincides with --c-denim */
+  --plg-blue-60:  #3961EB;  /* @kind color */
+  --plg-blue-70:  #145FCF;  /* @kind color */
+  --plg-blue-75:  #264D8E;  /* @kind color */
+  --plg-blue-80:  #232C71;  /* @kind color */
+  --plg-blue-90:  #232C71;  /* @kind color */ /* same hex as blue-80 in the source (Figma data quirk) - kept 1:1 */
+  --plg-blue-100: #094688;  /* @kind color */
+  /* purple */
+  --plg-purple-10: #E6E9FA;  /* @kind color */
+  --plg-purple-70: #BD60FF;  /* @kind color */
+  --plg-purple-80: #5B3DBE;  /* @kind color */
+  --plg-purple-90: #B940FF;  /* @kind color */
+  /* red */
+  --plg-red-40: #FC602B;  /* @kind color */ /* coincides with the grandfathered table orange */
+  --plg-red-50: #F34040;  /* @kind color */
+  --plg-red-80: #A4180C;  /* @kind color */
+  --plg-red-90: #B70F00;  /* @kind color */
+  /* orange */
+  --plg-orange-10: #FFF3E0;  /* @kind color */
+  --plg-orange-80: #A46300;  /* @kind color */
+  --plg-orange-90: #F38240;  /* @kind color */
+  /* pink */
+  --plg-pink-60: #E79BD2;  /* @kind color */
+
+  /* ---- PLG SEMANTIC (--plg-<group>-<feature>-<variant>) - reference PLG primitives only ---- */
+
+  /* Background */
+  --plg-background-trial-available-light-bg:            var(--plg-teal-90);    /* @kind color */ /* #079455 */
+  --plg-background-trial-available-dark-bg:             var(--plg-teal-100);   /* @kind color */ /* #003830 */
+  --plg-background-trial-pending-sign-light-bg:         var(--plg-orange-10);  /* @kind color */ /* #FFF3E0 */
+  --plg-background-trial-pending-sign-badge-dark-bg:    var(--plg-orange-80);  /* @kind color */ /* #A46300 */
+  --plg-background-trial-active-light-bg:               var(--plg-blue-10);    /* @kind color */ /* #F2F7FF */
+  --plg-background-trial-active-badge-solid-bg:         var(--plg-blue-70);    /* @kind color */ /* #145FCF */
+  --plg-background-active-selection-navy-bg:            var(--plg-blue-80);    /* @kind color */ /* #232C71 */
+  --plg-background-preordered-light-tint-bg:            var(--plg-purple-10);  /* @kind color */ /* #E6E9FA */
+  --plg-background-preordered-badge-solid-bg:           var(--plg-purple-80);  /* @kind color */ /* #5B3DBE */
+  --plg-background-pre-booked-cancelled-badge-dark-bg:  var(--plg-red-90);     /* @kind color */ /* #B70F00 */
+  --plg-background-value-estimate-light-tint-bg:        var(--plg-teal-20);    /* @kind color */ /* #D5F6DA */
+  --plg-background-new-update-orange-red-bg:            var(--plg-red-40);     /* @kind color */ /* #FC602B */
+  --plg-background-new-update-purple-bg:                var(--plg-purple-70);  /* @kind color */ /* #BD60FF */
+  --plg-background-uplift-range-white-tint-bg:          var(--plg-teal-30);    /* @kind color */ /* #F1FFF5 */
+
+  /* Icon */
+  --plg-icon-timer-pending:        var(--plg-orange-90);  /* @kind color */ /* #F38240 */
+  --plg-icon-gift-feature-purple:  var(--plg-purple-80);  /* @kind color */ /* #5B3DBE */
+  --plg-icon-gift-feature-blue:    var(--plg-blue-40);    /* @kind color */ /* #609FFF */
+  --plg-icon-info-critical-dark:   var(--plg-red-80);     /* @kind color */ /* #A4180C */
+  --plg-icon-info-critical-light:  var(--plg-red-50);     /* @kind color */ /* #F34040 */
+  --plg-icon-bolt-action:          var(--plg-blue-20);    /* @kind color */ /* #60FAFF */
+
+  /* Text */
+  --plg-text-active-trial-lightest:          var(--plg-blue-15);  /* @kind color */ /* #EDF5FF */
+  --plg-text-active-trial-mid-blue:          var(--plg-blue-50);  /* @kind color */ /* #4285F4 */
+  --plg-text-active-trial-dark:              var(--plg-blue-75);  /* @kind color */ /* #264D8E */
+  --plg-text-value-estimate-primary-navy:    var(--plg-blue-90);  /* @kind color */ /* #232C71 */
+  --plg-text-value-estimate-teal:            var(--plg-blue-45);  /* @kind color */ /* #1B90B4 */
+  --plg-text-value-estimate-dark-green:      var(--plg-teal-40);  /* @kind color */ /* #038C6F */
+  --plg-text-salary-range-pink-gradient:     var(--plg-pink-60);  /* @kind color */ /* #E79BD2 */
+  --plg-text-salary-range-blue-gradient:     var(--plg-blue-60);  /* @kind color */ /* #3961EB */
+  --plg-text-salary-range-light-blue:        var(--plg-blue-30);  /* @kind color */ /* #84D7F1 */
+  --plg-text-salary-range-teal-gradient:     var(--plg-teal-50);  /* @kind color */ /* #009966 */
+  --plg-text-salary-range-mid-teal:          var(--plg-teal-60);  /* @kind color */ /* #00BBA7 */
+  --plg-text-salary-range-green-gradient:    var(--plg-teal-40);  /* @kind color */ /* #038C6F */
+  --plg-text-salary-range-lightest-text:     var(--plg-blue-15);  /* @kind color */ /* #EDF5FF */
+  --plg-text-salary-range-primary-navy:      var(--plg-blue-90);  /* @kind color */ /* #232C71 */
+
+  /* Border */
+  --plg-border-value-estimate-dark-navy:    var(--plg-blue-90);  /* @kind color */ /* #232C71 */
+  --plg-border-value-estimate-teal:         var(--plg-blue-45);  /* @kind color */ /* #1B90B4 */
+  --plg-border-value-estimate-green:        var(--plg-teal-40);  /* @kind color */ /* #038C6F */
+  --plg-border-value-estimate-light-green:  var(--plg-teal-20);  /* @kind color */ /* #D5F6DA */
+  --plg-border-activate-trial-subtle:       var(--plg-blue-15);  /* @kind color */ /* #EDF5FF */
+  --plg-border-activate-trial-strong:       var(--plg-blue-75);  /* @kind color */ /* #264D8E */
+
+  /* =====================================================
+}
